@@ -1,0 +1,72 @@
+hostname :컴퓨터 이름
+~ : home directory 별칭
+pwd : print working directory 현재 위치한 디렉토리의 절대경로
+cd : change directory
+
+다중사용자 시스템
+
+1.유저 생성
+	useradd user1
+	useradd -g groupname user2
+	useradd -M user3 (홈 디렉토리 없이 만들기)프로그램 실행목적으로 만들때
+					ls -l /home할때는 검색되지 않는다
+				
+	cat /etc/passwd : 현재 시스템의 사용자를 확인
+	==>
+		webmaster:x:1000:10::/home/webmaster:/bin/bash
+		user1:x:1001:1001::/home/user1:/bin/bash
+		id:비밀번호:UID:GID:설명:홈디렉토리:로그인 쉘
+
+	비밀번호 x로 표기 => /etc/shadow에 암호화되어있다
+
+2.사용자 삭제
+	userdel user1 (/home 의 user1은 삭제되지않았음)
+	userdel -r user2 (디렉토리까지 삭제)
+	작업한 내용중 중요한 내용이 있을수도있기 때문에 -r를 잘 사용하지 않음
+
+3.디렉토리 삭제
+	rm(remove directory) -r
+	rm -fr(다시 물어보지않고 삭제)
+
+4.그룹 추가 삭제
+	groupadd group1
+	groupdel group1
+	
+	그룹 검색 groups webmaster
+
+5.사용자 전환
+	su -(root로 변경)
+	
+6. ls
+	디렉토리에 있는 파일의 목록을 표시
+	-l 권한,생성 시간 등 자세한 내용
+	-a 모든 내용
+	-h 파일크기를 읽기쉽게
+	-F 실행파일이나 디렉토리구분
+	-R 하위까지
+
+7. mkdir
+	디렉토리 생성
+	-m 권한 설정
+	-p 상위 디렉토리가 존재하지 않으면 상위 디렉토리도 만든다.
+   rmdir
+	디렉토리 삭제(디렉토리가 비어있어야 삭제가능)
+	-p 상위디렉토리까지 삭제(상위도 비어있어야됨)
+	
+8.파일 정보 0 4 6 5 7
+	- 일반(보통)파일 r-- rw-
+	b 블록 디바이스 파일	
+	c 문자열 디바이스 파일
+	d 디렉토리 r-- rw- r-x rwx
+	l 심볼릭 링크
+	p 또는 = 명명된 파이프(FIFO)
+	s 소켓
+
+
+
+
+
+
+
+
+
