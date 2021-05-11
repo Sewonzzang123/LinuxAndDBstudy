@@ -2,6 +2,8 @@ hostname :컴퓨터 이름
 ~ : home directory 별칭
 pwd : print working directory 현재 위치한 디렉토리의 절대경로
 cd : change directory
+*,? *:뒤에 문자 여러개 ?:뒤에 문자 하나
+ex)a* >apple,ate... a? > at,as
 
 다중사용자 시스템
 
@@ -24,9 +26,10 @@ cd : change directory
 	userdel -r user2 (디렉토리까지 삭제)
 	작업한 내용중 중요한 내용이 있을수도있기 때문에 -r를 잘 사용하지 않음
 
-3.디렉토리 삭제
-	rm(remove directory) -r
+3.디렉토리 삭제 : 파일을 삭제하면 복구가 불가능함!
+	rm(remove directory) -r,-R :하위까지 모두 삭제
 	rm -fr(다시 물어보지않고 삭제)
+	rm -i 파일을 삭제할것인지 사용자에게 물어본다.
 
 4.그룹 추가 삭제
 	groupadd group1
@@ -62,9 +65,81 @@ cd : change directory
 	p 또는 = 명명된 파이프(FIFO)
 	s 소켓
 
+9. touch
+	아무것도없는 파일생성(파일의 시간정보를 변경하는 명령어)
+	-c :현재시간으로 파일시간을 변경한다.
+	-d 시간 :현재 시간 대신 지정된 시간으로 파일 시간을 변경
+	-r 파일 :
+	-t
+
+	makefile
+		gcc -c hello.c ->hello.o
+		gcc -c main.c ->main.o
+		gcc -o hello hello.o main.o 
+		==>makefile로 만들어서 간편하게 !
+		$make
+		
+10. cp copy
+	-a 원본파일 그대로 유지하면서 복사
+	-i 복사대상에 같은이름이있으면 물어본다
+	-f 같은 이름이 존재하면 지우고 복사
+	-R 디렉토리를 복사할 때 그안에 하위파일들도 복사
+
+11. mv 파일 이동(보통 rename할때 쓰임 cp+rn보다 훨씬 빠름!)
+	-b 덮어쓰게 되는 경우 백업파일 만듦
+	-i 사용자에게 물어보기
+	-f 묻지 않기
+
+12. cat
+	파일의 내용을 화면에 출력
+	-n 줄 번호를 표시
+	-b 빈 행 제외 줄 번호 표시
+	-E 각 행마다 끝에 $ 문자를 출력한다.
+
+13. more 화면단위로 분할해서 출력(space)
+14. find 파일 찾기
+	-perm 퍼미션 (ex 755)
+	-type -? ?형태의 파일을 찾는다
+	-user "유저이름"
+	-name "문자열"
+	(null 2>/dev/null)
+
+15. grep :파일 내에서 또는 입력 값으로부터 특정 패턴을 검색
+	ex)sshd 프로세스 확인할 때 $ps -ef | grep sshd하면
+	grep프로세스도 표시된다.
+	(빼려면 | grep -v grep 추가)
+	
 
 
+16. 파이프: 두 프로그램의 통신
+	프로그램의 실행결과를 다른 프로그램으로 연결한다.
 
+17. 리다이렉션: 명령의출력을 변경할 수 있다. 파일에 기록할 수 있다
+	명령어 > 파일	:파일이 없다면 ㅅ애성, 있다면 기존의 내용을 삭제
+	명령어 >> 파일	: 파일이 없다면 생성, 있다면 기존의 내용에 추가
+	명령어 < 파일 : 표준입력을 받는다(stdin)
+		ex) echo "hello" > hello.txt
+			cat hello.txt => hello
+
+18. chown: 파일 소유자나 소유그룹을 변경하기 위한 명령
+	chown [옵션] 소유자: 소유그룹 파일명
+	-R 경로와 하위 파일들을 모두 변경
+	--help
+	--version
+
+19. tar: 기본적으로 압축을 하지 않고 묶어주는 역할(아카이브)
+	tar cvf ***.tar 압축파일경로(묶기)
+	tar xvf ***.tar (풀기)
+	
+	.tar.gz 로 묶기 : gzip
+	.tar로 풀기 : gzip -d or gunzip
+	
+	한번에 .tar.gz로 묶기 : tar xvfz
+
+	
+
+
+	
 
 
 
