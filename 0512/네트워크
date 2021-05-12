@@ -1,0 +1,79 @@
+	
+1. ping : 네트워크가 현재 동작중인지를 확인
+	ping [] 호스트
+	-s 패킷 사이즈
+	-q 종합 결과만 보옂귀
+	-i 지연시간 설정
+	-c 보낼 패킷 수 지정
+	(안되는건 핑을 닫아놔서 그럼)
+		yum -y install traceroute
+		ex) traceroute www.google.com
+	
+	ping 막기
+		vi /etc/sysctl.conf
+		net.ipv4.icmp_echo_ignore_all=1(0은 안막아)
+		sysctl -p
+		ping ipaddress
+	
+2. nslookup : 도메인 네임서버에 질의를 할 수 있는 명령어
+	nslookup [도메인]
+		vi /etc/resolv.conf > nameserver값 변경
+		(168.126.63.1,2)
+	
+3. hostname : 호스트네임을 화면에 출력하고, 네임 변경
+		>localhost.localdomain
+		/etc/hostname 파일에서 변경 가능
+		/etc/hosts : ip에 대한 name 설정
+		(ex db접속시 ip매번쓰기 힘들어,별칭주면 쉽게가능)
+	C:\Windows\System32\drivers\etc\hosts
+	>> #	192.168.80.112 lx01.Sewonzzang.com
+	
+4. netstat : 네트워크 연결, 라우팅 테이블, 네트워크 장치 등 정보확인
+		-a 모든 소켓 출력
+		-n 이름대신 숫자
+		-p socket PID
+		-r router
+		-t TCP
+		-u UDP
+		(ex) netstat -a | gerp http)
+
+5. ifconfig :네트워크 인터페이스 설정, 정보 확인
+	cat /etc/sysconfig/network-scripts/ifcfg-enp0s3
+	//다른데서는 이거 세개 바꿔주면 됨 띄워쓰기 ㄴㄴ 말따옴표 필수
+	IPADDR="192.168.80.112"	
+	NETMASK="255.255.255.0"
+	GATEWAY="192.168.80.254"	
+	DNS1="168.126.63.1"
+	DNS2="168.126.63.2"
+	
+	TYPE="Ethernet"	
+	//수정 BOOTPROTO="static"	
+	DEFROUTE="yes"	
+	IPV4_FAILURE_FATAL="no"	
+	IPV6INIT="yes"	
+	IPV6_AUTOCONF="yes"	
+	IPV6_DEFROUTE="yes"	
+	IPV6_FAILURE_FATAL="no"	
+	NAME="enp0s3"	
+	UUID="c0678616-1e33-40d4-8ace-59587e39aba1"	
+	DEVICE="enp0s3"	
+	ONBOOT="yes"	
+	PREFIX="24"			
+	IPV6_PEERDNS="yes"	
+	IPV6_PEERROUTES="yes"	
+	IPV6_PRIVACY="no"	
+	
+	/etc/resolv.conf 168.126.63.1
+	
+	#systemctl stop network
+	#systemctl start network
+	#systemctl status network
+	
+	#ifconfig
+	#nslookup www.douzone.com
+	
+
+
+
+
+	

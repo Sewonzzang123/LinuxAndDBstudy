@@ -1,0 +1,15 @@
+
+1. vi에디터 시작하기
+	vi 파일명
+	
+	vi /etc/profile
+
+	G: 파일의 끝 줄로 이동
+	
+	
+	
+	
+	
+	마우스로 드래그해서
+	ctrl+insert>복사
+	shift+insert>붙여넣기
