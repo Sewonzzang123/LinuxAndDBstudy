@@ -1,7 +1,7 @@
 /root
 1. http://tomcat.apache.org/download-80.cgi
 	>>core: tar.gz 링크 저장
-	lw #wget https://mirror.navercorp.com/apache/tomcat/tomcat-8/v8.5.65/bin/apache-tomcat-8.5.65.tar.gz
+	#wget https://mirror.navercorp.com/apache/tomcat/tomcat-8/v8.5.65/bin/apache-tomcat-8.5.65.tar.gz
 
 2. 압축 풀기
 	#tar xvfz apache-tomcat-8.5.65.tar.gz

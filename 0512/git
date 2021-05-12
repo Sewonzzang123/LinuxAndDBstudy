@@ -1,0 +1,53 @@
+git 2.9.5 설치
+
+1.의존성 라이브러리
+	#yum install curl-devel
+	#yum install expat-devel
+	#yum install gettext-devel
+	#yum install openssl-devel
+	#yum install zlib-devel
+	#yum install perl-devel
+
+1. 다운로드
+	#wget http://mirrors.edge.kernel.org/pub/software/scm/git/git-2.9.5.tar.gz
+	
+3. 압축 풀기
+	#tar xvfz git-2.9.5.tar.gz
+
+4. 소스 디렉토리로 이동
+	#cd git-2.9.5	
+	#pwd
+
+5. configure (complie을 할 수 있는 환경인지를 확인)
+	((build 환경))
+	#./configure --prefix=/usr/local/douzone2021/git
+	
+6. 빌드
+	#make all doc info
+
+7. 서치
+	#make install-doc install-html install-info 
+
+8. 설정(/etc/profile)
+	#git
+	PATH=$PATH:/usr/local/douzone2021/git/bin
+
+9. git 환경 설정
+	#git config --global user.name "Sewonzzang123"
+	#git config --global user.email "dkrlrhdrur@gmail.com"
+
+10. git 사용하기
+	#mkdir centos-practices
+	#cd centos-practices
+	#git init
+	#ls -a
+	# echo *# CentOS Practices" > README.md
+
+
+	#git add -A
+	#git commit -m "...."
+	#git push
+	
+
+	
+	
