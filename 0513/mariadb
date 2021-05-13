@@ -85,4 +85,9 @@
 12. path 설정(#vi /etc/profile)
 	# mysql
 	export PATH=$PATH:/usr/local/douzone2021/mariadb/bin
+	
+	#mysql -u root -p 하면 바로 접속 가능해짐
+	show databases;
+	use mysql; [none]=>[mysql]
+	show tables; (system database여서 건들면안돼)
 
