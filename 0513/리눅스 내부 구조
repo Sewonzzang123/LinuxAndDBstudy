@@ -1,0 +1,50 @@
+리눅스 파일 시스템
+1. 파일 시스템 
+	파일의 저장, 삭제, 읽기 등의 파일 관리 기능, 접근 제어 기능을 제공
+	윈도우 > FAT32,NTFS 
+	리눅스 > EXT2, EXT3
+	
+	가상 파일 시스템(VFS)
+	유닉스는 디스크, 터미널, 네트워크 카드 등 주변 장치들을 파일로 취급
+	
+	procfs: 커널 및 커널모듈정보를 참조, 설정 변경 /proc
+	sysfs :디바이스 정보 /sys
+	devfs :디바이스 파일 배치 /dev
+	
+	리눅스 디렉터리 구조
+	/루트			/dev		/var	
+	/bin		/etc		/proc
+	/sbin		/lib
+	/boot		/mnt
+	/home		/root
+	/usr/bin	/usr/sbin
+	/usr/include	/usr/lib
+	/tmp		/lost+found
+	
+2. ps :현재 실행되고 있는 프로세스의 목록을 보여준다
+	-aux 
+		(다른사용자의 프로세스 , 프로세스 사용자 이름,
+	 	시작 시간, 터미널과 연결되지 않은 프로세스)
+	-ef
+		(환경을 보여준다, 프로세스의 정보를 자세히 출력한다)
+	
+3. pstree : 프로세스 정보를 트리형태로 보여준다
+
+4. top : 프로세스의 CPU, Memory 사용량 등 전반적인 상황을 실시간 모니터링
+	load average : 시스템 평균 부하
+	
+5. kill :지정한 프로세스에게 시그널을 보낸다
+	-l 시그널 목록
+	-c 명령행 전체
+	-q 화면갱신
+	
+	1 sighup
+	3 sigquit
+	6 ctrl+c sigabrt(abort) Ctrl+c 삼가하고 이거써라
+	9 sigkill
+	
+6. free : 메모리 정보를 출력
+	사용가능한메모리 free+available
+	
+
+	

@@ -1,0 +1,59 @@
+작업 디렉토리 /root
+1. 다운로드 및 압축풀기
+	#wget https://mirror.navercorp.com/apache/maven/maven-3/3.8.1/binaries/apache-maven-3.8.1-bin.tar.gz
+	#ls -l
+	#tar xvfz apache-maven-3.8.1-bin.tar.gz
+
+2. 설치
+	#mv apache-maven-3.8.1 /usr/local/douzone2021/maven3.8
+	
+3. 링크
+	#ln -s /usr/local/douzone2021/maven3.8 /usr/local/douzone2021/maven
+
+버전 확인
+	/douzone/maven/bin/mvn -version
+
+4. path지정(/etc/profile)	
+	# maven
+	export PATH=$PATH:/usr/local/douzone2021/maven/bin
+	
+	export: 자식에게 넘겨줄때 사용함
+	
+	
+5. 소스 적용
+	#source /etc/profile
+	#maven --version
+	
+	
+6. 프로젝트 디렉토리 들어가서(build)
+	(pull 할때마다 해줘야됨)
+	#mvn clean package
+
+(깃 commit된 후에 pull받기 #git pull)
+pom.xml있는데서 build를 해야 한다.
+
+jar파일 구조를 알아야 해
+
+#pwd 
+>/root/dowork/javastudy
+
+실행(cp : classpath)
+#java -cp network/target/network-0.0.1-SNAPSHOT.jar httpd.SimpleHttpServer
+
+접근은 어떻게 함??
+>>>http://192.168.80.112:8888/
+
+
+	
+
+	
+
+
+	
+	
+	
+	
+	
+
+
+
