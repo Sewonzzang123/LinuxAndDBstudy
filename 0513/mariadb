@@ -85,9 +85,19 @@
 12. path 설정(#vi /etc/profile)
 	# mysql
 	export PATH=$PATH:/usr/local/douzone2021/mariadb/bin
-	
+
+13. 실행	
 	#mysql -u root -p 하면 바로 접속 가능해짐
 	show databases;
 	use mysql; [none]=>[mysql]
 	show tables; (system database여서 건들면안돼)
+
+14. 서비스 등록 : 데몬 Demon 등록/시작
+	#cp /usr/local/douzone2021/mariadb/support-files/mysql.server /etc/init.d/mariadb
+	#chkconfig (mariadb 가 없음을 확인)
+	#chkconfig mariadb on (CentOS7이상버전:systemctl enable mariadb)
+	#chkconfig (mariadb가 활성됨)
+	#systemctl start mariadb
+	
+	
 
