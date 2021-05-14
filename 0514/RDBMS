@@ -1,0 +1,31 @@
+database 밑의 mysql: 관리데이터베이스
+	를 제외한 다른 데이터베이스들은 사용자를 생성해야 한다.
+	
+	MariaDB [(none)] SHOW DATABASES;
+	MariaDB [(none)] CREATE DATABASE "데이터베이스명";
+	MariaDB [(none)] DROP DATABASE "삭제 할 데이터베이스 명"
+
+	#mysql -u root -D dbname -p;
+	#mysql -u root -p (DBA 권한으로 접속)
+		>> use dbname;
+	
+1. 데이터베이스 생성
+	MariaDB [(none)] create database webdb;
+	
+2. 사용자 생성( 인증, 비밀번호)
+	MariaDB [(none)] create user 'webdb'@'localhost' identified by 'webdb';
+	MariaDB [(none)] create user 'webdb'@'192.168.80.12' identified by 'webdb';
+	
+3. 사용자에게 데이터베이스 권한 부여
+	MariaDB [(none)] grant all privileges on webdb.* to 'webdb'@'192.168.80.12';
+	MariaDB [(none)] grant all privileges on webdb.* to 'webdb'@'localhost';
+	(webdb에대한 모든 권한)
+	
+	 flush privileges;
+
+4.  test
+	#mysql -u webdb -D webdb -p
+	윈도우의 workbanch에서 테스트(mysql설치)
+	mysql.PNG 확인 (hostname:linux 서버의 ip port:3307)
+	
+
