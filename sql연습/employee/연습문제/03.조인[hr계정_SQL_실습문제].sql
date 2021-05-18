@@ -33,7 +33,9 @@ and t2.emp_no = t3.emp_no
 and t3.emp_no = t4.emp_no
 and t4.emp_no = t5.emp_no
 and t4.to_date = '9999-01-01'
-and t5.to_date = '9999-01-01';
+and t5.to_date = '9999-01-01'
+and t2.to_date = '9999-01-01'
+order by t3.first_name asc;
 
 -- 문제5.
 -- ‘Technique Leader’의 직책으로 과거에 근무한 적이 있는 모든 사원의 사번과 이름을 출력하세요. 
@@ -78,9 +80,10 @@ order by t1.salary desc;
 
 -- 문제9.
 -- 현재, 부서별 평균 연봉을 연봉이 큰 부서 순서대로 출력하세요.
-select avg(t1.salary), t2.dept_no
-from salaries t1, dept_emp t2
+select avg(t1.salary) , t3.dept_name
+from salaries t1, dept_emp t2, departments t3
 where t1.emp_no = t2.emp_no
+and t2.dept_no = t3.dept_no
 and t1.to_date = '9999-01-01'
 and t2.to_date = '9999-01-01'
 group by t2.dept_no
@@ -91,7 +94,7 @@ order by avg(t1.salary) desc;
 select t2.title, avg(t1.salary)
 from salaries t1, titles t2
 where t1.emp_no = t2.emp_no
-and t1.to_date = '9999-01-01'
-and t2.to_date = '9999-01-01'
+-- and t1.to_date = '9999-01-01'
+-- and t2.to_date = '9999-01-01'
 group by t2.title
 order by avg(t1.salary) desc;

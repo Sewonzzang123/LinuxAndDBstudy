@@ -34,6 +34,6 @@ where to_date like '9999-%';
 select min(birth_date), max(birth_date)
 from employees;
 
-select round((period_diff(date_format(now(),'%Y%m'), date_format(min(birth_date), '%Y%m'))/12),0) '연장자',
-round((period_diff(date_format(now(),'%Y%m'), date_format(max(birth_date), '%Y%m'))/12),0) '어린 사원'
-from employees;
+select date_format(curdate(),'%Y') - date_format(max(birth_date),'%Y'),
+       date_format(curdate(),'%Y') - date_format(min(birth_date),'%Y')
+  from employees;
